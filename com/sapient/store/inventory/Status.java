@@ -12,6 +12,9 @@ public enum Status {
 	
 	@Override
 	public String toString() {
-		return this.message;
+		if (message instanceof String) {
+			return this.message;
+		}
+		return "";
 	}
 }

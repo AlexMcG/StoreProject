@@ -116,8 +116,8 @@ public class OrderTest {
 	}
 
 	@Test
-	public final void testGetOrderdetails() {
-		Collection<OrderDetail> orderDetails = testOrder.getOrderdetails();
+	public final void testGetOrderDetails() {
+		Collection<OrderDetail> orderDetails = testOrder.getOrderDetails();
 		assertTrue(orderDetails instanceof Collection);
 		for (OrderDetail orderDetail : orderDetails) {
 			assertTrue(orderDetail instanceof OrderDetail);
@@ -125,19 +125,19 @@ public class OrderTest {
 	}
 
 	@Test
-	public final void testSetOrderdetails() {
+	public final void testSetOrderDetails() {
 		Collection<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 		testOrderDetails.add(testOrderDetail);
 		testOrderDetails.add(testOrderDetail);
-		testOrder.setOrderdetails(orderDetails);
-		assertTrue(testOrder.getOrderdetails().equals(orderDetails));
+		testOrder.setOrderDetails(orderDetails);
+		assertTrue(testOrder.getOrderDetails().equals(orderDetails));
 	}
 
 	@Test
 	public final void testCalcTax() {
 		Collection<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 		orderDetails.add(testOrderDetail);
-		testOrder.setOrderdetails(orderDetails);
+		testOrder.setOrderDetails(orderDetails);
 		Double tax = testOrder.calcTax();
 		Double solution = 1.98;
 		assertEquals(tax, solution);
@@ -147,7 +147,7 @@ public class OrderTest {
 	public final void testCalcTotal() {
 		Collection<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 		orderDetails.add(testOrderDetail);
-		testOrder.setOrderdetails(orderDetails);
+		testOrder.setOrderDetails(orderDetails);
 		Double total = testOrder.calcTotal();
 		Double solution = 6.00;
 		assertEquals(total, solution);	
@@ -157,7 +157,7 @@ public class OrderTest {
 	public final void testCalcTotalWeight() {
 		Collection<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 		orderDetails.add(testOrderDetail);
-		testOrder.setOrderdetails(orderDetails);
+		testOrder.setOrderDetails(orderDetails);
 		Double weight = testOrder.calcTotalWeight();
 		Double solution = 6.00;
 		assertEquals(weight, solution);

@@ -19,18 +19,30 @@ public class Customer {
 		return this.name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		if (name instanceof String) {
+			this.name = name;
+		}
 	}
 	public String getAddress() {
 		return this.address;
 	}
 	public void setAddress(String address) {
-		this.address = address;
+		if (address instanceof String) {
+			this.address = address;
+		}
 	}
 	public Collection<Order> getOrders() {
 		return this.orders;
 	}
 	public void setOrders(Collection<Order> orders) {
-		this.orders = orders;
+		if (orders instanceof Collection) {
+			for (Order order: orders) {
+				if (!(order instanceof Order)) {
+					return;
+				}
+			}
+			this.orders = orders;
+		}
+		
 	}
 }

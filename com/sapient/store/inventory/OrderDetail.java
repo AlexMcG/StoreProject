@@ -32,17 +32,17 @@ public class OrderDetail {
 	}
 	public void setOrder(Order order) {
 		if (this.order != null) {
-			Collection<OrderDetail> orderDetails = this.getOrder().getOrderdetails();
+			Collection<OrderDetail> orderDetails = this.getOrder().getOrderDetails();
 			if (orderDetails.contains(this)) {
 				orderDetails.remove(this);
-				this.order.setOrderdetails(orderDetails);
+				this.order.setOrderDetails(orderDetails);
 			}
 		}
 		this.order = order;
 		if (this.order != null) {
-			Collection<OrderDetail> orderDetails = this.getOrder().getOrderdetails();
+			Collection<OrderDetail> orderDetails = this.getOrder().getOrderDetails();
 			orderDetails.add(this);
-			this.order.setOrderdetails(orderDetails);
+			this.order.setOrderDetails(orderDetails);
 		}
 	}
 	public Item getItem() {

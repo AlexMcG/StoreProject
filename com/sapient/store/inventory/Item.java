@@ -18,13 +18,17 @@ public class Item {
 		return shippingWeight;
 	}
 	public void setShippingWeight(Double shippingWeight) {
-		this.shippingWeight = shippingWeight;
+		if (shippingWeight instanceof Double) {
+			this.shippingWeight = shippingWeight;
+		}
 	}
 	public String getDescription() {
 		return description;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		if (description instanceof String) {
+			this.description = description;
+		}
 	}
 	public OrderDetail getOrderDetail() {
 		return orderDetail;
@@ -32,6 +36,8 @@ public class Item {
 	public void setOrderDetail(OrderDetail orderDetail) {
 		if (orderDetail == null) {
 			this.orderDetail = null;
+		} else if (!(orderDetail instanceof OrderDetail)) {
+			return;
 		} else {
 			if (this.orderDetail != null) {
 				this.orderDetail.setItem(null);
@@ -49,7 +55,9 @@ public class Item {
 		return price;
 	}
 	public void setPrice(Double price) {
-		this.price = price;
+		if (price instanceof Double) {
+			this.price = price;
+		}
 	}
 	
 	public Double getPriceforQuantity() {

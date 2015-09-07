@@ -29,18 +29,25 @@ public class Order {
 		return date;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		if (date instanceof Date) {
+			this.date = date;
+		}
 	}
 	public Status getStatus() {
 		return status;
 	}
 	public void setStatus(Status status) {
-		this.status = status;
+		if (status instanceof Status) {
+			this.status = status;
+		}
 	}
 	public Customer getCustomer() {
 		return customer;
 	}
 	public void setCustomer(Customer customer) {
+		if (!(customer instanceof Customer)) {
+			return;
+		}
 		if (this.customer != null) {
 			Collection<Order> orders = this.getCustomer().getOrders();
 			if (orders.contains(this)) {
@@ -59,13 +66,17 @@ public class Order {
 		return payment;
 	}
 	public void setPayment(Payment payment) {
-		this.payment = payment;
+		if (payment instanceof Payment) {
+			this.payment = payment;
+		}
 	}
-	public Collection<OrderDetail> getOrderdetails() {
+	public Collection<OrderDetail> getOrderDetails() {
 		return orderDetails;
 	}
-	public void setOrderdetails(Collection<OrderDetail> orderdetails) {
-		this.orderDetails = orderdetails;
+	public void setOrderDetails(Collection<OrderDetail> orderDetails) {
+		if (orderDetails instanceof Collection) {
+			this.orderDetails = orderDetails;	
+		}
 	}
 	
 	public Double calcTax() {
