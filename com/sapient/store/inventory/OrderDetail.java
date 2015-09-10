@@ -18,20 +18,24 @@ public class OrderDetail {
 	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setQuantity(Integer quantity) {
+		if (quantity instanceof Integer) {
+			this.quantity = quantity;
+		}
 	}
 	public Double getTaxStatus() {
 		return taxStatus;
 	}
 	public void setTaxStatus(Double taxStatus) {
-		this.taxStatus = taxStatus;
+		if (taxStatus instanceof Double) {
+			this.taxStatus = taxStatus;
+		}
 	}
 	public Order getOrder() {
 		return order;
 	}
 	public void setOrder(Order order) {
-		if (this.order != null) {
+		if (this.order != null && order instanceof Order) {
 			Collection<OrderDetail> orderDetails = this.getOrder().getOrderDetails();
 			if (orderDetails.contains(this)) {
 				orderDetails.remove(this);
@@ -52,7 +56,7 @@ public class OrderDetail {
 		if (item == null) {
 			this.item = null;
 			return;
-		} else {
+		} else if (item instanceof Item) {
 			if (this.item != null) {
 				this.item.setOrderDetail(null);
 			}
